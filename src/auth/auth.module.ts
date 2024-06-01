@@ -20,4 +20,9 @@ import { Friend } from 'src/friends/entities/friend.entity';
   providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService, TypeOrmModule],
 })
+
+
+
+
+
 export class AuthModule { }
