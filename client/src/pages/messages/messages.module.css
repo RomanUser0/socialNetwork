@@ -1,0 +1,73 @@
+.messages {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.navMessages {
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.959);
+    box-shadow: 0px 10px 5px -10px black;
+}
+.lucideArrow {
+    color: rgb(0, 140, 255);
+    margin-right: 15px;
+}
+.friend a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+.friend a img {
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 12.5px;
+}
+.chat {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/messageFon/backgroundChat.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: scroll;
+}
+.chat p {
+    color: #a7b942b2;
+}
+.chat_item {
+    display: flex;
+    margin-bottom: 8px;
+    column-gap: 7px;
+}
+.createMessage {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    margin-top: auto;
+    background-color: brown;
+}
+.createMessage form {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+.createMessage form input {
+    padding-left: 5px;
+    width: 100%;
+    border: none;
+    border-right: 1px solid black;
+}
+.createMessage form button {
+    background-color: #ffffff;
+    border: none;
+    color: rgb(0, 132, 255);
+}

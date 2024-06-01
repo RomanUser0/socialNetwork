@@ -1,0 +1,32 @@
+name: node.js CI
+on: [push]
+jobs:
+    github_checkout:
+        runs-on: self-hosted
+        strategy:
+            matrix:
+                version: [20]
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v3
+          - uses: actions/setup-node@v4
+            with:
+                node-version: ${{matrix.version}}
+          - name: init
+            run: |
+              npm i
+              npm run build
+              cd client
+              npm i
+              npm run build
+
+              
+
+            
+        
+
+
+
+              
+
+

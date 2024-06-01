@@ -1,0 +1,29 @@
+.myMusic {
+    width: 100%;
+    margin-top: 40px;
+}
+.default {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+}
+.default p {
+    text-align: center;
+    width: 90%;
+    color: gray;
+}
+.lucideMusic2 {
+    background-color: rgba(101, 145, 241, 0.479);
+    padding: 10px;
+    border-radius: 7px;
+    color: rgba(3, 3, 255, 0.671);
+}
+.default button {
+    background-color: rgba(0, 0, 255, 0.658);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: aliceblue;
+}

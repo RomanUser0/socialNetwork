@@ -1,0 +1,75 @@
+.myPhotos {
+    width: 100%;
+    background-color: rgba(150, 150, 150, 0.212);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.lucideHeader {
+    color: rgb(0, 68, 255);
+    width: 30px;
+    margin-right: 15px;
+}
+
+.header h2 {
+    font-size: 23px;
+}
+
+.photosList {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.navMyPhotos {
+    display: flex;
+    background-color: #ffffff;
+
+}
+
+.navMyPhotos button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: none;
+    padding: 5px 10px;
+    color: rgb(26, 115, 218);
+    font-size: 15px;
+    background-color: transparent;
+}
+
+.navMyPhotos input {
+    width: 0;
+    height: 0;
+}
+
+.lucideButton {
+    margin-right: 10px;
+}
+.photos_list {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.photos_list img {
+    width: 100%;
+    height: 100%;
+}
+.photoLength p {
+    width: 100%;
+    text-align: center;
+    color: darkgray;
+}

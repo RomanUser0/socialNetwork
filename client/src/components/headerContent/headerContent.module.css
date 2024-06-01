@@ -1,0 +1,14 @@
+.headerContent  {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, 0.089);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+}
+.headerContent a {
+    color: gray;
+}
