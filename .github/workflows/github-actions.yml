@@ -12,12 +12,6 @@ jobs:
           - uses: actions/setup-node@v4
             with:
                 node-version: ${{matrix.version}}
-          - name: init
-            run: |
-              npm ci
-              
-
-              
 
             
         
