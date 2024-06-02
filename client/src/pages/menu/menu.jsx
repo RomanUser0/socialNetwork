@@ -27,6 +27,7 @@ function Menu() {
             <div className={Styles.headerMenu}>
                 <div className={Styles.wrapper}>
                     <Link to={'/'}><img src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault} /></Link>
+                    
                 <p>Сервисы</p>
                 </div>
                     <div>
