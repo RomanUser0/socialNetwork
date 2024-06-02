@@ -14,10 +14,10 @@ jobs:
                 node-version: ${{matrix.version}}
           - name: init
             run: |
-              npm ci
+              npm i
               npm run build
               cd client
-              npm ci
+              npm i
               npm run build
 
               
