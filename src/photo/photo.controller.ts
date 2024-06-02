@@ -19,7 +19,7 @@ export class PhotoController {
   @UseGuards(JwtAuthGuard)
   @UseInterceptors(FileInterceptor('file', {
     storage: diskStorage({
-      destination: './uploads/photo/avatar',
+      destination: '../uploads/photo/avatar',
       filename: (req, file, cb) => {
         extname(file.originalname)
         cb(null, `${file.originalname}`)
@@ -37,7 +37,7 @@ export class PhotoController {
   @Get('getPhoto/:id')
   async getPhoto(@Param() id, @Res() res) {
     const photo = await this.photoService.getPhoto(id)
-    return res.sendFile(join(process.cwd(), 'uploads/photo/avatar/' + photo.photo))
+    return res.sendFile(join(process.cwd(), '../uploads/photo/avatar/' + photo.photo))
   }
 }
 
