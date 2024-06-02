@@ -16,6 +16,9 @@ function Friends() {
 
 
 
+    
+
+
     return (
         <div className={Styles.friends}>
             <div className={Styles.header}>
