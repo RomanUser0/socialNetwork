@@ -11,6 +11,7 @@ export function SubmitFile() {
     const dispatch = useDispatch()
 
     const { isPhoto, user, lengthFriends } = useSelector(state => state.auth)
+    console.log(lengthFriends)
 
 
     const uploadFile = (quantity, refPhoto) => {
