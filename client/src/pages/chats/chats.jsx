@@ -27,7 +27,7 @@ function Chats() {
         <div className={Styles.chats}>
             <div className={Styles.navChats}>
                 <div className={Styles.navChatsImg}>
-                    <Link to={'/'}>{<img src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault} />}</Link>
+                    <Link to={'/'}>{<img src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${id}` : AvatarDefault} />}</Link>
                     <p>Чаты</p>
                 </div>
                 <div className={Styles.navChatsNav}>
