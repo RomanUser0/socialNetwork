@@ -15,10 +15,7 @@ jobs:
           - name: init
             run: |
               npm ci
-              npm run build
-              cd client
-              npm ci
-              npm run build
+              
 
               
 
