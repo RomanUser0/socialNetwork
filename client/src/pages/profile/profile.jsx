@@ -54,9 +54,9 @@ function Profile() {
                     <div className={Styles.friendPhoto}>
                         {lengthFriends?.length > 1 ?
                             <div>
-                                <img src={`${import.meta.env.VITE_URL}/api/getPhoto/${lengthFriends ? lengthFriends[0] : ''}`} />
-                                <img src={`${import.meta.env.VITE_URL}/getPhoto/${lengthFriends ? lengthFriends[1] : ''}`} />
-                                <img src={`${import.meta.env.VITE_URL}/api/getPhoto/${lengthFriends ? lengthFriends[2] : ''}`} />
+                                <img src={`${import.meta.env.VITE_URL}/api/getPhoto/${lengthFriends ? lengthFriends[0] : AvatarDefault}`} />
+                                <img src={`${import.meta.env.VITE_URL}/getPhoto/${lengthFriends ? lengthFriends[1] : AvatarDefault}`} />
+                                <img src={`${import.meta.env.VITE_URL}/api/getPhoto/${lengthFriends ? lengthFriends[2] : AvatarDefault}`} />
                             </div>
                             :
                             <div></div>
