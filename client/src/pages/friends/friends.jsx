@@ -26,7 +26,6 @@ function Friends() {
                      <Link to={'/'}><SquareArrowLeft className={Styles.lucideHeader} /></Link>
                 <h2>Друзья</h2>
                 </div>
-               
                 <Link to={'/searchFriends'}><Search className={Styles.lusiceSearch}/></Link>
             </div>
             <div className={Styles.sort}>
@@ -39,10 +38,8 @@ function Friends() {
                 </div>
                 <div>
                      <Link to={`/chats/messages/${user.id}`}><MessageCircle className={Styles.message}/></Link>
-                </div>
-               
+                </div>             
             </div>)}
-
         </div>
     )
 }
