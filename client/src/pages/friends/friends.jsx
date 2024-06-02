@@ -2,6 +2,8 @@ import Styles from './friends.module.css'
 import { useAddFriendMutation, useGetAllfriendsQuery } from '../../store/friendsQueryApi/friendsQueryApi'
 import { MessageCircle, Search, SquareArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import AvatarDefault from '../../assets/images/defaultAvatar/defaultAvatar.jpg'
+import { SubmitFile } from '../../hooks/submitFile'
 
 
 
@@ -12,6 +14,7 @@ function Friends() {
     const addFriend = async (id) => {
         await addFriendApi({ id: id })
     }
+    const { isPhoto } = SubmitFile()
 
 
 
@@ -33,7 +36,7 @@ function Friends() {
             </div>
             {data?.map((user) => <div className={Styles.friend} key={user.id}>
                 <div className={Styles.description}>
-                    <img width={'40px'} src={`/api/getPhoto/${user.id}`}></img>
+                    <img width={'40px'} src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault}></img>
                 <p>{user.firstname} {user.lastname}</p>
                 </div>
                 <div>
