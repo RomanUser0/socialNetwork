@@ -13,14 +13,7 @@ export const friendsApi = createApi({
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
-            }),
-            providesTags: (result) => result
-            ? [
-                ...result.map(({ id }) => ({ type: 'friends', id })),
-                { type: 'friends', id: 'LIST' },
-            ]
-            :
-            [{ type: 'friends', id: 'LIST' }]
+            })
         }),
         addFriend: build.mutation({
             query: (body) => ({
@@ -51,7 +44,13 @@ export const friendsApi = createApi({
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
             }),
-            invalidatesTags: [{ type: 'friends', id: 'LIST' }]
+            providesTags: (result) => result
+            ? [
+                ...result.map(({ id }) => ({ type: 'friends', id })),
+                { type: 'friends', id: 'LIST' },
+            ]
+            :
+            [{ type: 'friends', id: 'LIST' }]
         })
     })
 })
