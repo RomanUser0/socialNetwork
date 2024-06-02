@@ -24,7 +24,7 @@ function Friends() {
             <div className={Styles.header}>
                 <div className={Styles.wrapper}>
                      <Link to={'/'}><SquareArrowLeft className={Styles.lucideHeader} /></Link>
-                <h2>Дру</h2>
+                <h2>Друзья</h2>
                 </div>
                
                 <Link to={'/searchFriends'}><Search className={Styles.lusiceSearch}/></Link>
