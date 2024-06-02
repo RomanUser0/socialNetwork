@@ -45,7 +45,7 @@ function Chat({ id, firstname, lastname }) {
     return (
         <div className={Styles.chats_item}>
             <Link to={`/chats/messages/${id}`}>
-                <img src={`http://localhost:3000/api/getPhoto/${id}`} />
+                <img src={`${import.meta.env.VITE_URL}/api/getPhoto/${id}`} />
                 <p><span>{firstname}</span><span>{lastname}</span></p>
                <p>{message.sender == sender ? 'вы' : 'он'} {message.message}</p>
             </Link>

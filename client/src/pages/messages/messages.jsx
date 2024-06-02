@@ -84,7 +84,7 @@ function Messages() {
             </div>
             <div className={Styles.chat}>
                 {mess?.map((mess) => <div className={Styles.chat_item} key={mess.id}>
-                    <img width={'45px'} height={'45px'} src={`${import.meta.env.VITE_URL}/api/getPhoto/${mess.recipient}`} />
+                    <img width={'45px'} height={'45px'} borderRadius={'22.5px'} src={`${import.meta.env.VITE_URL}/api/getPhoto/${mess.sender}`} />
                     <div>
                         <div><p style={{color: 'grey'}}>{mess?.nameSender}</p></div>
                     <p key={mess.id}>{mess.message}</p>
