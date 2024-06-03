@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Req, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Param, Post, Req, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import { PhotoService } from './photo.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Photo } from './entities/photo.entity';
@@ -7,13 +7,15 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname, join } from 'path';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { User } from 'src/user/entities/user.entity';
 
 
 @Controller('api')
 export class PhotoController {
   constructor(
     private readonly photoService: PhotoService,
-    @InjectRepository(Photo) private readonly photoRepository: Repository<Photo>) { }
+    @InjectRepository(Photo) private readonly photoRepository: Repository<Photo>,
+    @InjectRepository(User) private readonly userRepository: Repository<User>) { }
 
   @Post('uploadPhoto')
   @UseGuards(JwtAuthGuard)
@@ -29,17 +31,12 @@ export class PhotoController {
   async uploadFile(@UploadedFile() file: Express.Multer.File, @Req() req) {
     await this.photoRepository.save({
       photo: file.filename,
-      user: req.user.id,
-      isPhoto: true
+      user: req.user.id
     })
+    await this.userRepository.createQueryBuilder().update().set({isPhoto: true}).where("id = req.user.id", {id: req.user.id}).execute()
   }
 
 
-  @Post('getIsPhoto')
-  async getIsPhoto(@Body() body) {
-    console.log(body)
-    return await this.photoService.getIsPhoto(body)
-  }
 
   @Get('getPhoto/:id')
   async getPhoto(@Param() id, @Res() res) {

@@ -23,6 +23,9 @@ export class User {
     @Column()
     password: string;
 
+    @Column('boolean', {default: false})
+    isPhoto: boolean
+
     @OneToOne(() => Photo)
     @JoinColumn()
     photo: Photo;

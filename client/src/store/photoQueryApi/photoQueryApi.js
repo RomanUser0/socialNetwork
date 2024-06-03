@@ -43,19 +43,9 @@ export const photoApi = createApi({
                 ]
                 :
                 [{ type: 'Photos', id: 'LIST' }]
-        }),
-        getIsPhoto: build.mutation({
-            query: (body) => ({
-                url: 'getIsPhoto',
-                method: 'POST',
-                body,
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            })
         })
     })
 })
 
-export const { useCreatePhotoMutation, useCreatePhotosMutation, useGetPhotosQuery, useGetIsPhotoMutation } = photoApi
+export const { useCreatePhotoMutation, useCreatePhotosMutation, useGetPhotosQuery } = photoApi
 

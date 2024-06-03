@@ -10,8 +10,6 @@ export class Photo {
     @Column()
     photo: string;
 
-    @Column('boolean', {default: false})
-    isPhoto: boolean
 
     @OneToOne(() => User)
     @JoinColumn()
