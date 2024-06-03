@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useGetProfileQuery } from "../../store/authQueryApi/authQueryApi"
 import { LocalStorageService } from "../localStorage/localStorage"
 import { useDispatch, useSelector } from "react-redux"
-import { exsistPhoto, login, logout } from "../../store/slices/authSlice"
+import {  login, logout } from "../../store/slices/authSlice"
 
 
 
@@ -23,7 +23,6 @@ function checkAuth() {
             return
         }
         dispatch(login(data))
-        dispatch(exsistPhoto(data?.isPhoto))
     }
 
     useEffect(() => {
