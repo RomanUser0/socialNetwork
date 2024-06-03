@@ -3,6 +3,7 @@ import { useGetIsPhotoMutation } from '../../store/photoQueryApi/photoQueryApi'
 import { useEffect, useState } from 'react'
 import { MessageCircle } from 'lucide-react'
 import AvatarDefault from '../../assets/images/defaultAvatar/defaultAvatar.jpg'
+import { Link } from 'react-router-dom'
 
 
 
