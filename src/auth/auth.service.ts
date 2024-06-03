@@ -51,14 +51,8 @@ export class AuthService {
       idFriends.push(friends[i].friend)
     } 
     const { password, ...payload } = await this.usersService.findOne(user.email)
-    const isPhoto = await this.photoRepository.findOne({
-      where: {
-        user: {id: user.id }
-      }
-    })
     return {
       ...payload,
-      isPhoto: isPhoto?.isPhoto,
       lengthFriends: idFriends
     }
   }
