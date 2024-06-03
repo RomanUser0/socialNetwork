@@ -18,7 +18,7 @@ function Profile() {
 
     const refPhoto = useRef()
     const refPhotos = useRef()
-    const { submitFile, uploadFile, isPhoto, user, lengthFriends } = SubmitFile()
+    const { submitFile, uploadFile, user, lengthFriends } = SubmitFile()
     const { data, isSuccess} = useGetPhotosQuery()
     const [avatar, setAvatar] = useState(false)
     const handleChangePhoto = async (event) => {
@@ -38,7 +38,7 @@ function Profile() {
     return (
         <div className={Styles.profile}>
             <div className={Styles.photo}>
-                <img onClick={() => setAvatar((avatar) => !avatar)} src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault} className={Styles.avatar} />
+                <img onClick={() => setAvatar((avatar) => !avatar)} src={user?.isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault} className={Styles.avatar} />
                 <div className={avatar ? Styles.redactorPhoto : Styles.isActive}>
                     <input ref={refPhoto} className={Styles.uploadPhoto} onChange={handleChangePhoto} type='file' />
                     <button onClick={() => uploadFile('one', refPhoto)}><Pencil className={Styles.lucidePhoto} /> Изменить фото</button>

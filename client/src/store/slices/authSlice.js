@@ -10,8 +10,7 @@ const initialState = {
         email: '',
     },
     lengthFriends: [],
-    isAuth: false,
-    isPhoto: false
+    isAuth: false
 }
 
 export const authSlice = createSlice({
@@ -30,13 +29,10 @@ export const authSlice = createSlice({
         logout: (state) => {
             state.user = {}
             state.isAuth = false
-        },
-        exsistPhoto: (state, action) => {
-            state.isPhoto = action.payload
         }
     }
 
 })
 
-export const { createUser, login, logout, exsistPhoto } = authSlice.actions
+export const { createUser, login, logout } = authSlice.actions
 export default authSlice.reducer

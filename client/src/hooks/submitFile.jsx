@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux"
+import {  useSelector } from "react-redux"
 import { useCreatePhotoMutation, useCreatePhotosMutation } from "../store/photoQueryApi/photoQueryApi"
-import  { exsistPhoto } from '../store/slices/authSlice'
+
 
 
 export function SubmitFile() {
@@ -8,7 +8,6 @@ export function SubmitFile() {
     
     const [uploadPhoto] = useCreatePhotoMutation()
     const [uploadPhotos] = useCreatePhotosMutation()
-    const dispatch = useDispatch()
 
     const { isPhoto, user, lengthFriends } = useSelector(state => state.auth)
     console.log(lengthFriends)
@@ -34,7 +33,6 @@ export function SubmitFile() {
         } else {
             formData.append(`file`, event.target.files[0]);
             await uploadPhoto(formData)
-            dispatch(exsistPhoto(true))
             refPhotos.current.value = null
         }
 
