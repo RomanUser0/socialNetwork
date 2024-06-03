@@ -4,6 +4,7 @@ import { MessageCircle, Search, SquareArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import AvatarDefault from '../../assets/images/defaultAvatar/defaultAvatar.jpg'
 import { SubmitFile } from '../../hooks/submitFile'
+import Friend from '../../components/friend/friend'
 
 
 
@@ -35,7 +36,7 @@ function Friends() {
             <div className={Styles.sort}>
                 <p>Мои друзья <span>{data?.length}</span></p>
             </div>
-            {data?.map((user) => <div className={Styles.friend} key={user.id}>
+            {data?.map((user) => {<Friend user={user}/>/* <div className={Styles.friend} key={user.id}>
                 <div className={Styles.description}>
                     <img width={'40px'} src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault}></img>
                 <p>{user.firstname} {user.lastname}</p>
@@ -43,7 +44,7 @@ function Friends() {
                 <div>
                      <Link to={`/chats/messages/${user.id}`}><MessageCircle className={Styles.message}/></Link>
                 </div>             
-            </div>)}
+            </div> */})}
         </div>
     )
 }
