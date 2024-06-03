@@ -10,6 +10,7 @@ import { SubmitFile } from '../../hooks/submitFile'
 function Friends() {
 
     const { data = [] } = useGetAllfriendsQuery()
+    console.log(data)
     const [addFriendApi] = useAddFriendMutation()
     const addFriend = async (id) => {
         await addFriendApi({ id: id })
