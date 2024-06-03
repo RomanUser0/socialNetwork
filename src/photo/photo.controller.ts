@@ -35,7 +35,7 @@ export class PhotoController {
   }
 
 
-  @Get('getIsPhoto')
+  @Post('getIsPhoto')
   async getIsPhoto(@Body() body) {
     console.log(body)
     return await this.photoService.getIsPhoto(body)
