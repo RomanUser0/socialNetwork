@@ -1,4 +1,4 @@
-import Styles from 'friend.module.css'
+import Styles from './friend.module.css'
 import { useGetIsPhotoMutation } from '../../store/photoQueryApi/photoQueryApi'
 import { useEffect, useState } from 'react'
 
