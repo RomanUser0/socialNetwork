@@ -19,5 +19,16 @@ export class PhotoService {
             }
         })
     }
+
+    async getIsPhoto(body) {
+        const photo = await this.photoRepository.findOne({
+            where: {
+                user: {
+                    id: body
+                }
+            }
+        })
+        return photo.isPhoto
+    }
 }
 

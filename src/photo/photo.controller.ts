@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Req, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req, Res, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import { PhotoService } from './photo.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Photo } from './entities/photo.entity';
@@ -32,6 +32,13 @@ export class PhotoController {
       user: req.user.id,
       isPhoto: true
     })
+  }
+
+
+  @Get('getIsPhoto')
+  async getIsPhoto(@Body() body) {
+    console.log(body)
+    return await this.photoService.getIsPhoto(body)
   }
 
   @Get('getPhoto/:id')
