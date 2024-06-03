@@ -24,7 +24,7 @@ export class PhotoService {
         const photo = await this.photoRepository.findOne({
             where: {
                 user: {
-                    id: body
+                    id:  body.id
                 }
             }
         })

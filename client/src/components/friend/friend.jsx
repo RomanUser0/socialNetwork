@@ -10,7 +10,7 @@ function Friend({ user }) {
     const [isPhotofn, { isSuccess }] = useGetIsPhotoMutation()
     const [isPhoto, setIsPhoto] = useState()
     const getIsPhoto = async () => {
-       const isPhoto = await isPhotofn(user.id)
+       const isPhoto = await isPhotofn({ id: user.id})
        setIsPhoto(isPhoto)
     }
 
