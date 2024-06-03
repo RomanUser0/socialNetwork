@@ -28,7 +28,7 @@ export class PhotoService {
                 }
             }
         })
-        return photo.isPhoto
+        return { isPhoto: photo.isPhoto }
     }
 }
 
