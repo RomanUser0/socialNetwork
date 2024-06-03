@@ -1,6 +1,7 @@
 import Styles from './friend.module.css'
 import { useGetIsPhotoMutation } from '../../store/photoQueryApi/photoQueryApi'
 import { useEffect, useState } from 'react'
+import { MessageCircle } from 'lucide-react'
 
 
 
