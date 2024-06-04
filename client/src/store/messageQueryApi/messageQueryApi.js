@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { baseApi } from "../authQueryApi/authQueryApi";
 
 
 
-export const messageApi = createApi({
+export const messageApi = baseApi.injectEndpoints({
     reducerPath: 'messageApi',
     baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_URL}/api` }),
     endpoints: (build) => ({

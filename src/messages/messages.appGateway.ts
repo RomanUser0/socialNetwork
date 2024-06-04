@@ -20,6 +20,7 @@ export class MessagesAppGaeway /* implements OnGatewayConnection */  {
 
   @SubscribeMessage('events')
   async handleEvent(@MessageBody() data) {
+    console.log(data)
    const mess = await this.messagesService.createMessage(data)
     this.server.emit('message', mess)
   }

@@ -18,23 +18,39 @@ export class AuthService {
 
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.usersService.findOne(email);
-    const exsistPassword = compareSync(password, user.password)
-    if (user && exsistPassword) {
-      const { password, ...result } = user;
-      return result;
+    if (user) {
+      const exsistPassword = compareSync(password, user.password)
+      if (user && exsistPassword) {
+        const { password, ...result } = user;
+        return result;
+      }
     }
+
     return null;
   }
 
 
   async login(user: any) {
     const payload = { email: user.email, id: user.id };
+    const idFriends = []
+    const friends = await this.friendRepository.find({
+      where: {
+        user: {
+          id: user.id
+        }
+      }
+    })
+    for (let i = 0; i < friends.length; i++) {
+      idFriends.push(friends[i].friend)
+    }
     return {
       id: user.id,
       email: user.email,
       firstname: user.firstname,
       lastname: user.lastname,
       token: this.jwtService.sign(payload),
+      lengthFriends: idFriends,
+      isPhoto: user.isPhoto
     };
   }
 
@@ -47,9 +63,9 @@ export class AuthService {
         }
       }
     })
-     for(let i = 0; i < friends.length; i++) {
+    for (let i = 0; i < friends.length; i++) {
       idFriends.push(friends[i].friend)
-    } 
+    }
     const { password, ...payload } = await this.usersService.findOne(user.email)
     return {
       ...payload,

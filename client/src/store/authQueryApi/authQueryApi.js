@@ -1,8 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+export const baseApi = createApi({
+    baseQuery: fetchBaseQuery({
+        baseUrl: `${import.meta.env.VITE_URL}/api`
+    }),
+    endpoints: () => ({})
+})
 
-
-export const authApi = createApi({
+export const authApi = baseApi.injectEndpoints({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_URL}/api` }),
     endpoints: (build) => ({
@@ -28,8 +33,15 @@ export const authApi = createApi({
                     'Authorization': 'Bearer ' + localStorage.getItem('token') 
                 }
             })
+        }),
+        getUser: build.mutation({
+            query: (body) => ({
+                 url: 'getUser',
+                 method: 'POST',
+                 body
+            })
         })
     })
 })
 
-export const { useCreateUserMutation, useGetProfileQuery, useLoginMutation } = authApi
+export const { useCreateUserMutation, useGetProfileQuery, useLoginMutation, useGetUserMutation } = authApi

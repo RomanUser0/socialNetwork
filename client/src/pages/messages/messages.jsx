@@ -7,7 +7,9 @@ import { useGetMessageMutation } from '../../store/messageQueryApi/messageQueryA
 import { io } from "socket.io-client";
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { SubmitFile } from '../../hooks/submitFile'
+import { useGetUserMutation } from '../../store/authQueryApi/authQueryApi'
+import Message from '../../components/message/message'
+import AvatarDefault from '../../assets/images/defaultAvatar/defaultAvatar.jpg'
 
 
 
@@ -19,12 +21,20 @@ export const socketApi = () => {
 
 
 function Messages() {
+    const [getUser] = useGetUserMutation()
+    const [user, setUser] = useState()
 
-    const { user } = SubmitFile()
+    const getUserfn = async () => {
+        const user = await getUser({ id })
+        setUser(user.data)
+
+    }
+
+
     const sender = useSelector(state => state.auth.user?.id)
+    console.log(user)
     const [getMessage] = useGetMessageMutation()
     const [message, setMessage] = useState([])
-    console.log(message)
     const mess = [...message]
     mess.sort(function (a, b) {
         if (a.created_at > b.created_at) {
@@ -45,6 +55,7 @@ function Messages() {
     useEffect(() => {
         const socket = socketApi()
         getMessageApi()
+        getUserfn()
         socket.on("connection", (socket) => {
             /*   console.log(socket.id); */
         });
@@ -77,20 +88,13 @@ function Messages() {
                 </Link>
                 <div className={Styles.friend}>
                     <Link>
-                        <img width={'20px'} src={`${import.meta.env.VITE_URL}/api/getPhoto/${id}`} />                 
+                        <img width={'20px'} src={user?.isPhoto ?`${import.meta.env.VITE_URL}/api/getPhoto/${id}` : AvatarDefault} />                 
                         <p>{data?.firstname} {data?.lastname}</p>
                     </Link>
                 </div>
             </div>
             <div className={Styles.chat}>
-                {mess?.map((mess) => <div className={Styles.chat_item} key={mess.id}>
-                    <img width={'45px'} height={'45px'} src={`${import.meta.env.VITE_URL}/api/getPhoto/${mess.sender}`} />
-                    <div>
-                        <div><p style={{color: 'grey'}}>{mess?.nameSender}</p></div>
-                    <p key={mess.id}>{mess.message}</p>
-                    </div> 
-                    <p>{Math.trunc((Math.abs(new Date() - new Date(mess.created_at)) / 1000) / 60)}</p>
-                </div>)}
+                {mess?.map((mess) => <Message key={mess.id} mess={mess} />)}
             </div>
             <div className={Styles.createMessage}>
                 <form onSubmit={handleSubmit(onSubmit)}>

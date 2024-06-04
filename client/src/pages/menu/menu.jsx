@@ -3,22 +3,23 @@ import Styles from './menu.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { Blocks, Box, ChevronRight, Footprints, Gamepad2, LogOut, MessageSquareHeart, Music, SquarePlay, SquareUser, Users } from 'lucide-react'
 import { logout } from '../../store/slices/authSlice'
-import { SubmitFile } from '../../hooks/submitFile'
 import AvatarDefault from '../../assets/images/defaultAvatar/defaultAvatar.jpg'
+import { baseApi } from '../../store/authQueryApi/authQueryApi'
 
 
 
 
 function Menu() {
 
-    const id = useSelector(state => state.auth.user?.id)
-    const { isPhoto } = SubmitFile()
+    const user = useSelector(state => state.auth.user)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const logOut = () => {
         dispatch(logout())
         localStorage.clear('token')
+       /*  dispatch(baseApi.util.resetApiState()) */
         navigate('/')
     }   
 
@@ -26,7 +27,7 @@ function Menu() {
         <div className={Styles.menu}>
             <div className={Styles.headerMenu}>
                 <div className={Styles.wrapper}>
-                    <Link to={'/'}><img src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${id}` : AvatarDefault} /></Link>
+                    <Link to={'/'}><img src={user?.isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault} /></Link>
 
 
                 <p>Сервисы</p>

@@ -43,11 +43,6 @@
 .chat p {
     color: #a7b942b2;
 }
-.chat_item {
-    display: flex;
-    margin-bottom: 8px;
-    column-gap: 7px;
-}
 .createMessage {
     box-sizing: border-box;
     width: 100%;

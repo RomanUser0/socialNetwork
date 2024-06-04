@@ -38,6 +38,14 @@ export class UserService {
     }
   }
 
+  async getUser(id) {
+    return await this.userRepository.findOne({
+      where: {
+        id: id.id
+      }
+    })
+  }
+
 
 
   async findOne(email: string) {

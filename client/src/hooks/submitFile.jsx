@@ -9,8 +9,7 @@ export function SubmitFile() {
     const [uploadPhoto] = useCreatePhotoMutation()
     const [uploadPhotos] = useCreatePhotosMutation()
 
-    const { isPhoto, user, lengthFriends } = useSelector(state => state.auth)
-    console.log(lengthFriends)
+    const { isPhoto, user } = useSelector(state => state.auth)
 
 
     const uploadFile = (quantity, refPhoto) => {
@@ -44,8 +43,7 @@ export function SubmitFile() {
         submitFile,
         uploadFile,
         isPhoto,
-        user,
-        lengthFriends
+        user
     }
 }
 

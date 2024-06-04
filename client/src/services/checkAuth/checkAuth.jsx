@@ -2,7 +2,8 @@ import { useEffect } from "react"
 import { useGetProfileQuery } from "../../store/authQueryApi/authQueryApi"
 import { LocalStorageService } from "../localStorage/localStorage"
 import { useDispatch, useSelector } from "react-redux"
-import {  login, logout } from "../../store/slices/authSlice"
+import { login, logout } from "../../store/slices/authSlice"
+
 
 
 
@@ -17,12 +18,13 @@ function checkAuth() {
 
     const auth = () => {
         const token = get('token')
-        if (!token) {
-            dispatch(logout())
-            clear('token')
-            return
+        if (token) {         
+                dispatch(login(data))
+                return
         }
-        dispatch(login(data))
+        dispatch(logout())
+        clear('token')
+
     }
 
     useEffect(() => {

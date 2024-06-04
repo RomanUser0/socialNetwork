@@ -33,7 +33,9 @@ export class PhotoController {
       photo: file.filename,
       user: req.user.id
     })
-    await this.userRepository.createQueryBuilder().update().set({isPhoto: true}).where("id = req.user.id", {id: req.user.id}).execute()
+    
+   await this.userRepository.createQueryBuilder('user').update().set({isPhoto: true}).where("user.id = :id", {id: req.user.id}).execute()
+
   }
 
 

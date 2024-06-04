@@ -9,7 +9,6 @@ import Friend from '../../components/friend/friend'
 function Friends() {
 
     const { data = [] } = useGetAllfriendsQuery()
-    console.log(data)
     const [addFriendApi] = useAddFriendMutation()
     const addFriend = async (id) => {
         await addFriendApi({ id: id })
@@ -33,7 +32,7 @@ function Friends() {
             <div className={Styles.sort}>
                 <p>Мои друзья <span>{data?.length}</span></p>
             </div>
-            {data?.map((user) => <Friend user={user} />)}
+            {data?.map((user) => <Friend key={user.id} user={user} />)}
         </div>
     )
 }

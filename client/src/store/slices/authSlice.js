@@ -8,8 +8,8 @@ const initialState = {
         firstname: '',
         lastname: '',
         email: '',
+        lengthFriends: [],
     },
-    lengthFriends: [],
     isAuth: false
 }
 
@@ -24,7 +24,6 @@ export const authSlice = createSlice({
         login: (state, action) => {
             state.user = action.payload
             state.isAuth = true
-            state.lengthFriends = action.payload?.lengthFriends
         },
         logout: (state) => {
             state.user = {}

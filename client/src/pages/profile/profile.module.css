@@ -86,18 +86,18 @@
 }
 .friendPhoto img{
     position: absolute;
-    right: 15px;
+    right: 0px;
     display: inline-block;
     width: 20px;
     height: 100%;
     border-radius: 11px;
     border: 2px solid #ffffff;
 }
-.friendPhoto img:first-child {
-    right: 30px;
+.friendPhoto img ~ img {
+    right: 15px;
 }
 .friendPhoto img:last-child {
-    right: 0px;
+    right: 30px;
 }
 .navPhoto {
     display: flex;

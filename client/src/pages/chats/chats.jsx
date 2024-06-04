@@ -5,7 +5,7 @@ import { MessageSquareDiff } from 'lucide-react'
 import { useGetChatsQuery } from '../../store/messageQueryApi/messageQueryApi'
 import Chat from '../../components/chat/chat'
 import AvatarDefault from '../../assets/images/defaultAvatar/defaultAvatar.jpg'
-import { SubmitFile } from '../../hooks/submitFile'
+
 
 
 
@@ -13,9 +13,10 @@ import { SubmitFile } from '../../hooks/submitFile'
 
 function Chats() {
 
-    const id = useSelector(state => state.auth.user?.id)
+    const user = useSelector(state => state.auth.user)
     const { data = [] } = useGetChatsQuery()
-    const { isPhoto } = SubmitFile()
+
+
 
 
 
@@ -27,7 +28,7 @@ function Chats() {
         <div className={Styles.chats}>
             <div className={Styles.navChats}>
                 <div className={Styles.navChatsImg}>
-                    <Link to={'/'}>{<img src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${id}` : AvatarDefault} />}</Link>
+                    <Link to={'/'}>{<img src={user?.isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault} />}</Link>
                     <p>Чаты</p>
                 </div>
                 <div className={Styles.navChatsNav}>

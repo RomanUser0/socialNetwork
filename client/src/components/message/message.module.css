@@ -1,0 +1,5 @@
+.chat_item {
+    display: flex;
+    margin-bottom: 8px;
+    column-gap: 7px;
+}

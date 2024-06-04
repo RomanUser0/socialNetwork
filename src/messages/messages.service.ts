@@ -39,6 +39,7 @@ export class MessagesService {
                 chats: chatExist?.id || chatExistRes.id,
                 nameSender: `${sender.firstname} ${sender.lastname}`
             })
+            console.log(mess)
             return mess
         }
         const chat = await this.chatsRepository.save({
@@ -49,7 +50,8 @@ export class MessagesService {
             message: data.message,
             recipient: data.recipient,
             sender: data.sender,
-            chats: chat.id
+            chats: chat.id,
+            nameSender: `${sender.firstname} ${sender.lastname}`
 
         })
         return mess

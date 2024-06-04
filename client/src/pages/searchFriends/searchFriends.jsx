@@ -10,7 +10,6 @@ function SearchFriends() {
 
     const { data = [] } = useSearchFriendsQuery()
     const [addFriend] = useAddFriendMutation()
-    const { isPhoto } = SubmitFile()
     const submit = async (id) => {
         await addFriend({id: id})
     }
@@ -20,7 +19,7 @@ function SearchFriends() {
         <div className={Styles.searchFriends}>
             {data?.map((user) => <div className={Styles.user} key={user.id}>
                 <div className={Styles.wrapper}>
-                    <img src={isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault}/>
+                    <img src={user.isPhoto ? `${import.meta.env.VITE_URL}/api/getPhoto/${user?.id}` : AvatarDefault}/>
                 <div className={Styles.nameUser}>
                     <h3>{user.firstname} {user.lastname}</h3>
                 </div>

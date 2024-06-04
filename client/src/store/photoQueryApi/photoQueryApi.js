@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { baseApi } from "../authQueryApi/authQueryApi";
 
 
 
-export const photoApi = createApi({
+export const photoApi = baseApi.injectEndpoints({
     reducerPath: 'photoApi',
     tagTypes: ['Photos'],
     baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_URL}/api` }),

@@ -9,7 +9,7 @@ import { jwtConstants } from 'src/auth/constans/jwtConstans';
 @Module({
   imports: [JwtModule.register({
     secret: jwtConstants.secret,
-    signOptions: { expiresIn: '1d' },
+    signOptions: { expiresIn: '1h' },
   }), TypeOrmModule.forFeature([User])],
   controllers: [UserController],
   providers: [UserService],
