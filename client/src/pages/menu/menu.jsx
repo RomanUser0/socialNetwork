@@ -19,7 +19,7 @@ function Menu() {
     const logOut = () => {
         dispatch(logout())
         localStorage.clear('token')
-       /*  dispatch(baseApi.util.resetApiState()) */
+        dispatch(baseApi.util.resetApiState()) 
         navigate('/')
     }   
 

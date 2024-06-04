@@ -39,6 +39,7 @@ function Profile() {
     const refPhotos = useRef()
     const { submitFile, uploadFile, user} = SubmitFile()
     const { data, isSuccess } = useGetPhotosQuery()
+    console.log(data)
     const [avatar, setAvatar] = useState(false)
     const handleChangePhoto = async (event) => {
         submitFile(event, refPhoto, false)
