@@ -14,10 +14,10 @@ export class MessagesService {
         @InjectRepository(User) private readonly usersRepository: Repository<User>) { }
 
 
+        
     async createMessage(data) {
 
         const sender = await this.usersRepository.findOne({where: {id: data.sender}})
-        console.log(sender)
 
         const chatExist = await this.chatsRepository.findOne({
             where: {
@@ -39,7 +39,6 @@ export class MessagesService {
                 chats: chatExist?.id || chatExistRes.id,
                 nameSender: `${sender.firstname} ${sender.lastname}`
             })
-            console.log(mess)
             return mess
         }
         const chat = await this.chatsRepository.save({
