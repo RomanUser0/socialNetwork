@@ -10,6 +10,7 @@ function App() {
 
   const { isAuth } = checkAuth()
 
+
   if (isAuth)
     return <DefaultApp />
   else {
