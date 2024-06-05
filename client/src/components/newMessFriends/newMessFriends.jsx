@@ -1,4 +1,4 @@
-import Styles from './newMessFriends.module.css'
+/* import Styles from './newMessFriends.module.css'
 
 
 
@@ -18,4 +18,4 @@ function NewMessFriends() {
 }
 
 
-export default NewMessFriends
+export default NewMessFriends */

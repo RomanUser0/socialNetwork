@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Styles from './newMessage.module.css'
 import { MessageCircle, SquareArrowLeft } from 'lucide-react'
 import { useGetAllfriendsQuery } from '../../store/friendsQueryApi/friendsQueryApi'
+import AvatarDefault from '../../assets/images/defaultAvatar/defaultAvatar.jpg'
 
 
 function NewMessage() {
