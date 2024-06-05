@@ -19,7 +19,7 @@ function checkAuth() {
     console.log(error)
     const auth = () => {
         const token = get('token')
-        if (token) {         
+        if (token && !error) {         
                 dispatch(login(data))
                 return
         }
