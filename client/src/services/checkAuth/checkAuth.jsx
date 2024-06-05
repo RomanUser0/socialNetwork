@@ -15,7 +15,8 @@ function checkAuth() {
     const isAuth = useSelector((state) => state.auth.isAuth)
     const { get, clear } = LocalStorageService()
     const { data, error } = useGetProfileQuery()
-
+    console.log(data)
+    console.log(error)
     const auth = () => {
         const token = get('token')
         if (token) {         
