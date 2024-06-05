@@ -31,7 +31,6 @@ function checkAuth() {
         } 
         auth()
     }, [data, error])
-
     
     return {
         isAuth
