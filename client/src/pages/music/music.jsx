@@ -18,7 +18,7 @@ function Music() {
         <div className={Styles.music}>
             <div className={Styles.header}>
                 <div>
-                    <Link><ArrowLeft className={Styles.ArrowLeft} /></Link>
+                    <Link to={'/menu'}><ArrowLeft className={Styles.ArrowLeft} /></Link>
                 </div>
                 <div className={Styles.search}>
                     <input type='search' placeholder='Поиск' />

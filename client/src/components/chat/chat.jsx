@@ -18,7 +18,7 @@ function Chat({ id, firstname, lastname }) {
   
     const [getMessage] = useGetMessageMutation()
     const [message, setMessage] = useState('')
-    console.log(message)
+
    
     const sender = useSelector(state => state.auth.user?.id)
 

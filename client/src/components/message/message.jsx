@@ -32,7 +32,7 @@ function Message({mess}){
                         <div><p style={{color: 'grey'}}>{mess?.nameSender}</p></div>
                     <p key={mess.id}>{mess.message}</p>
                     </div> 
-                    <p>{Math.trunc((Math.abs(new Date() - new Date(mess.created_at)) / 1000) / 60)}</p>
+                    <p>{Math.trunc((Math.abs(new Date() - new Date(mess.created_at)) / 1000) / 60)} мин.назад</p>
                 </div>
     )
 }

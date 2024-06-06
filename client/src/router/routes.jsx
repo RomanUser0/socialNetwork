@@ -13,6 +13,7 @@ const SearchFriends = lazy(() => import('../pages/searchFriends/searchFriends'))
 const HeaderContent = lazy(() => import('../components/headerContent/headerContent'))
 const Video = lazy(() => import('../pages/video/video'))
 const Music = lazy(() => import('../pages/music/music'))
+const Communities = lazy(() => import('../pages/communities/communities'))
 
 const routes = createBrowserRouter([
     {
@@ -28,6 +29,7 @@ const routes = createBrowserRouter([
             { path: '/searchFriends', element: <SearchFriends /> },
             { path: '/video', element: <Video /> },
             { path: '/music', element: <Music /> },
+            { path: '/communities', element: <Communities /> },
         ]
     }
 

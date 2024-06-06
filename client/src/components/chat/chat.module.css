@@ -1,6 +1,11 @@
+.chats_item {
+    margin-bottom: 5px;
+}
 .chats_item a {
     display: flex;
-    align-items: center;
+    text-decoration: none;
+    color: rgb(82, 130, 114);
+    align-items: top;
     column-gap: 5px;
 }
 .chats_item a img {

@@ -45,7 +45,7 @@ function Menu() {
                         </Link>
                     </li>
                     <li>
-                        <Link>
+                        <Link to={'/communities'}>
                             <SquareUser className={Styles.lucideSocial} />
                             <p>Сообщества</p>
                         </Link>

@@ -3,3 +3,6 @@
     margin-bottom: 8px;
     column-gap: 7px;
 }
+.chat_item img {
+    border-radius: 22.5px;
+}

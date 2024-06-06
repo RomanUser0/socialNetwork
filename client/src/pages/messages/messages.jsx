@@ -32,7 +32,6 @@ function Messages() {
 
 
     const sender = useSelector(state => state.auth.user?.id)
-    console.log(user)
     const [getMessage] = useGetMessageMutation()
     const [message, setMessage] = useState([])
     const mess = [...message]

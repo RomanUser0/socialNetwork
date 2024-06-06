@@ -37,7 +37,7 @@ function Profile() {
 
     const refPhoto = useRef()
     const refPhotos = useRef()
-    const { submitFile, uploadFile, user} = SubmitFile()
+    const { submitFile, uploadFile, user } = SubmitFile()
     const { data, isSuccess } = useGetPhotosQuery()
     const [avatar, setAvatar] = useState(false)
     const handleChangePhoto = async (event) => {
@@ -71,11 +71,7 @@ function Profile() {
                 <Link to={'/friends'}>
                     <p>{user?.lengthFriends?.length} {!user?.lengthFriends?.length || user?.lengthFriends?.length >= 5 || user?.lengthFriends?.length == 0 ? 'Друзей' : 'Друга'}</p>
                     <div className={Styles.friendPhoto}>
-                        {user?.lengthFriends?.length > 3 ?
-                            <div></div>
-                            :
-                            user?.lengthFriends?.map((friend) => <ProfileFriens key={friend} friends={friend} />)
-                        }
+                        {user?.lengthFriends?.slice(0, 3).map((friend) => <ProfileFriens key={friend} friends={friend} />)}
                     </div>
                 </Link>
             </div>
